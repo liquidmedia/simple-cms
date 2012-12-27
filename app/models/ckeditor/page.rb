@@ -1,6 +1,8 @@
 module Ckeditor
   class Page < ActiveRecord::Base
 
+    self.table_name = 'ckeditor_pages'
+
     attr_accessible :title, :content, :url
 
     has_and_belongs_to_many :users
