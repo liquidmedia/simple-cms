@@ -1,6 +1,6 @@
-= Micro-CMS
+= Simple CMS
 
-A lightweight CMS for Ruby on Rails using Ckeditor (http://ckeditor.com)
+A lightweight CMS for Ruby on Rails using CKEditor (http://ckeditor.com)
 for inline editing
 
 = Installation

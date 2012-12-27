@@ -7,11 +7,11 @@ require "ckeditor/version"
 Gem::Specification.new do |s|
   s.name        = "ckeditor"
   s.version     = Ckeditor::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Ckeditor."
-  s.description = "TODO: Description of Ckeditor."
+  s.authors     = ["Jeremie Wood"]
+  s.email       = ["jeremie@jeremiewood.com"]
+  s.homepage    = "https://github.com/liquidmedia/simple-cms"
+  s.summary     = "A simple CMS using CKEditor for inline editing"
+  s.description = "A simple CMS using CKEditor for inline editing"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
