@@ -9,8 +9,6 @@ for inline editing
 
 * Add "//= require ckeditor/application" to application.js
 
-* Add "helper Ckeditor::Engine.helpers" to your application controller
-
 * Your application must provide current_user and admin_signed_in? controller
   and helper methods
 
