@@ -1,4 +1,5 @@
-%h1 Home
+- content_for :page_title do
+  = page_fragment "home_page_title", nil, :h1, "Home"
 
 %p Editable textarea 1:
 = page_fragment "test1"
