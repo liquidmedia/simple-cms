@@ -14,7 +14,7 @@ class Ckeditor::PagesController < ApplicationController
     @full_page = Ckeditor::FullPage.find_by_name(params[:name])
     if @full_page.nil?
       if admin_signed_in?
-        render :new
+        render 'ckeditor/pages/new'
       else
         raise ActionController::RoutingError.new(error_msg)
       end
