@@ -5,12 +5,12 @@ for inline editing
 
 = Installation
 
-* Copy migrations with rake ckeditor:install:migrations and then run them
+* Copy migrations with rake simple_cms:install:migrations and then run them
 
-* Add "//= require ckeditor/application" to application.js
+* Add "//= require simple_cms/application" to application.js
 
 * Your application must provide current_user and admin_signed_in? controller
   and helper methods
 
-* To configure the layout used for full pages, add Ckeditor.layout = '[your layout]'
+* To configure the layout used for full pages, add SimpleCms.layout = '[your layout]'
   to an initializer
