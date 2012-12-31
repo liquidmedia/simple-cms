@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_self
 //= require ckeditor/ckeditor
-//= require_tree .
 
 (function($) {
   $(function() {
@@ -43,6 +43,8 @@
       editor.resetDirty();
     }
   }
+
+  window['CKEDITOR_BASEPATH'] = "/assets/ckeditor/";
 
 }(jQuery));
 
