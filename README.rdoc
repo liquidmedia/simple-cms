@@ -1,3 +1,16 @@
-= SimpleCms
+= Simple CMS
 
-This project rocks and uses MIT-LICENSE.
+A lightweight CMS for Ruby on Rails using CKEditor (http://ckeditor.com)
+for inline editing
+
+= Installation
+
+* Copy migrations with rake ckeditor:install:migrations and then run them
+
+* Add "//= require ckeditor/application" to application.js
+
+* Your application must provide current_user and admin_signed_in? controller
+  and helper methods
+
+* To configure the layout used for full pages, add Ckeditor.layout = '[your layout]'
+  to an initializer
