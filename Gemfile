@@ -17,3 +17,8 @@ gem "jquery-rails"
 # gem 'debugger'
 
 gem 'haml'
+
+# Gems used for precompiling assets
+group :assets do
+  gem 'uglifier'
+end
