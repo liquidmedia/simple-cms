@@ -1,7 +1,0 @@
-- content_for :page_title do
-  %h1.full_page_title{:id => "full_page_#{@full_page.id}_title", :"data-id" => @full_page.id, :contenteditable => (admin_signed_in? || @full_page.editable?(current_user)).to_s}
-    = @full_page.title.html_safe
-
-.full_page_body{:id => "full_page_#{@full_page.id}_body", :"data-id" => @full_page.id, :contenteditable => (admin_signed_in? || @full_page.editable?(current_user)).to_s}
-  :plain
-    #{@full_page.content}

@@ -1,6 +1,0 @@
-%p There is currently no page at this URL. Would you like to create a new page?
-
-%p
-  = form_tag main_app.ckeditor_create_path do
-    = hidden_field_tag :name, request.path[1..-1]
-    = submit_tag "Create Page"
