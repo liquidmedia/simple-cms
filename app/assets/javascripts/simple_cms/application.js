@@ -31,7 +31,7 @@
   function saveData(element, async) {
     var dom_obj = $(element);
     var editor = CKEDITOR.instances[dom_obj.attr("id")]
-    if (editor.checkDirty()) {
+    if (editor != undefined && editor.checkDirty()) { // editor will be undefined if current user does not have permission to edit text
       var data = {}
       data["page"] = {}
       if (dom_obj.hasClass("full_page_title")) {
