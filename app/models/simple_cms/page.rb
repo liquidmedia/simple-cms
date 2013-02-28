@@ -3,11 +3,11 @@ module SimpleCms
 
     self.table_name = 'simple_cms_pages'
 
-    attr_accessible :title, :content, :url
+    attr_accessible :title, :content, :url, :full_url
 
     has_and_belongs_to_many :users
 
-    validates :name, :presence => true, :uniqueness => true
+    validates :name, :presence => true, :uniqueness => {:scope => :locale}
 
     def editable?(user)
       return false if user.nil?

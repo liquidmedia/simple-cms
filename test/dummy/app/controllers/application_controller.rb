@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :login_as_admin
   #before_filter :login_as_user
+  before_filter :set_locale
 
   helper_method :current_user, :admin_signed_in?
 
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
 
   def login_as_user
     session[:current_user] ||= User.find_or_create_by_name("Test User", :admin => false)
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

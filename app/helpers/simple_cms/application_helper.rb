@@ -2,7 +2,7 @@ module SimpleCms
   module ApplicationHelper
 
     def page_fragment(name, user = nil, tag_name = :div, default_text = "This text block is blank. Click on it to edit it and add content.")
-      @page = Page.find_or_create_by_name(name, :url => request.path[1..-1])
+      @page = Page.find_or_create_by_name_and_locale(name, I18n.locale, :url => request.path[1..-1], :full_url => request.url)
       @page.update_attributes(:url => request.path[1..-1]) if @page.url.nil?
       @page.users << user unless user.nil? || @page.users.include?(user)
 

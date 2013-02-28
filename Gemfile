@@ -17,6 +17,7 @@ gem "jquery-rails"
 # gem 'debugger'
 
 gem 'haml'
+gem 'pg'
 
 # Gems used for precompiling assets
 group :assets do

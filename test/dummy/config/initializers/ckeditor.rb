@@ -1,1 +1,1 @@
-SimpleCms.layout = 'test'
+# SimpleCms.layout = 'test'

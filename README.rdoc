@@ -14,3 +14,19 @@ for inline editing
 
 * To configure the layout used for full pages, add SimpleCms.layout = '[your layout]'
   to an initializer
+
+* The layout you use for full pages should have a :page_title section
+
+= Usage
+
+To create editable text areas on a page, use the page_fragment method.
+Page_fragment takes the following options: (name required, all others optional)
+
+* name - a name for the text block
+
+* user - if the current user should be able to edit this text block, include them here
+
+* tag_name - tag you want the text block surrounded by (defaults to div)
+
+* default_text - text to display when the text block is empty. Defaults to "This text block
+is blank. Click on it to edit it and add content."

@@ -3,4 +3,6 @@
 %p
   = form_tag simple_cms_create_path do
     = hidden_field_tag :name, request.path[1..-1]
+    = hidden_field_tag :locale, params[:locale] if params[:locale]
+    = hidden_field_tag :full_url, request.url
     = submit_tag "Create Page"
