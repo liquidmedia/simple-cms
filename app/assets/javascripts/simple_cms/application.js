@@ -20,6 +20,7 @@
     CKEDITOR.disableAutoInline = true;
 
     $('.page_fragment .edit_button').click(function(e) {
+      $(this).parent('.page_fragment').children('.edit_button').hide();
       var fragment = $(this).parent('.page_fragment').children('.editable_area');
       var editor = CKEDITOR.instances[fragment.attr("id")];
       if (typeof(editor) == "undefined") {
@@ -55,6 +56,7 @@
       editor.destroy();
     }
     dom_obj.attr('contenteditable', false);
+    dom_obj.parent('.page_fragment').children('.edit_button').show();
   }
 
   window['CKEDITOR_BASEPATH'] = "/assets/ckeditor/";
