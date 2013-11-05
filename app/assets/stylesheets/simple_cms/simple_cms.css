@@ -1,0 +1,18 @@
+.page_fragment {
+  position: relative;
+}
+
+.page_fragment .edit_button {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 10px;
+  color: white;
+  background-color: red;
+  display: inline-block;
+  font-weight: normal;
+  font-family: Sans-Serif;
+  padding: 0 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+}

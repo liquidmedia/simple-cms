@@ -10,9 +10,15 @@ module SimpleCms
       return '' if content.blank? && !(admin_signed_in? || @page.editable?(current_user))
       content = default_text if content.blank?
 
-      content_tag tag_name, :class => :page_fragment, :id => "page_fragment_#{@page.id}", :"data-id" => @page.id, :contenteditable => (admin_signed_in? || @page.editable?(current_user)).to_s do
-        content.html_safe
+      content_tag :div, :class => :page_fragment do
+        content_tag tag_name, :class => :editable_area, :id => "page_fragment_#{@page.id}", :"data-id" => @page.id do
+          content.html_safe
+        end.concat(simple_cms_edit_button(@page.editable?(current_user)))
       end
+    end
+
+    def simple_cms_edit_button(editable)
+      admin_signed_in? || editable ? '<div class="edit_button">edit</div>'.html_safe : ''
     end
   end
 end

@@ -1,7 +1,11 @@
 - content_for :page_title do
-  %h1.full_page_title{:id => "full_page_#{@full_page.id}_title", :"data-id" => @full_page.id, :contenteditable => (admin_signed_in? || @full_page.editable?(current_user)).to_s}
-    = @full_page.title.html_safe
+  .page_fragment
+    %h1.full_page_title.editable_area{:id => "full_page_#{@full_page.id}_title", :"data-id" => @full_page.id}
+      = @full_page.title.html_safe
+    = simple_cms_edit_button(@full_page.editable?(current_user))
 
-.full_page_body{:id => "full_page_#{@full_page.id}_body", :"data-id" => @full_page.id, :contenteditable => (admin_signed_in? || @full_page.editable?(current_user)).to_s}
-  :plain
-    #{@full_page.content}
+.page_fragment
+  .full_page_body.editable_area{:id => "full_page_#{@full_page.id}_body", :"data-id" => @full_page.id}
+    :plain
+      #{@full_page.content}
+  = simple_cms_edit_button(@full_page.editable?(current_user))

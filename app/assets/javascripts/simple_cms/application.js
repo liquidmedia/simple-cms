@@ -17,31 +17,44 @@
 
 (function($) {
   $(function() {
-    $('[contenteditable="true"]').blur(function(e){
-      saveData(e.target, true);
+    CKEDITOR.disableAutoInline = true;
+
+    $('.page_fragment .edit_button').click(function(e) {
+      var fragment = $(this).parent('.page_fragment').children('.editable_area');
+      var editor = CKEDITOR.instances[fragment.attr("id")];
+      if (typeof(editor) == "undefined") {
+        fragment.attr('contenteditable', true);
+        CKEDITOR.inline(fragment.prop('id')).on('blur', function() {
+          saveData(fragment, true);
+        });
+      }
+      fragment.focus();
     });
   });
 
   $(window).unload(function() {
-    $('.full_page_title, .full_page_body, .page_fragment').each(function(index, element) {
+    $('.page_fragment .editable_area').each(function(index, element) {
       saveData(element, false);
     });
   });
 
   function saveData(element, async) {
     var dom_obj = $(element);
-    var editor = CKEDITOR.instances[dom_obj.attr("id")]
+    var editor = CKEDITOR.instances[dom_obj.attr("id")];
     if (typeof(editor) != "undefined" && editor.checkDirty()) { // editor will be undefined if current user does not have permission to edit text
-      var data = {}
-      data["page"] = {}
+      var data = {};
+      data["page"] = {};
       if (dom_obj.hasClass("full_page_title")) {
         data["page"]["title"] = editor.getData();
       } else {
         data["page"]["content"] = editor.getData();
       }
       $.ajax({"url": '/simple_cms/' + dom_obj.data("id"), "data": data, "async": async, "type": "POST"})
-      editor.resetDirty();
     }
+    if (typeof(editor) != "undefined") {
+      editor.destroy();
+    }
+    dom_obj.attr('contenteditable', false);
   }
 
   window['CKEDITOR_BASEPATH'] = "/assets/ckeditor/";

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :login_as_admin
   #before_filter :login_as_user
   before_filter :set_locale
+  layout :set_layout
 
   helper_method :current_user, :admin_signed_in?
 
@@ -25,5 +26,12 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+    Rails.logger.debug "set_locale"
+  end
+
+  def set_layout
+    Rails.logger.debug "set_layout"
+    I18n.locale = :fr
+    'application'
   end
 end
