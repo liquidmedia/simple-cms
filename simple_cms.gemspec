@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2.6"
   s.add_dependency "paperclip", "~> 3.5.2"
-  s.add_dependency "aws-sdk", "~> 1.11.1"
+  s.add_dependency "aws-sdk", "~> 1.30"
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
