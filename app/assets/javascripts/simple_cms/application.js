@@ -25,11 +25,14 @@
       var editor = CKEDITOR.instances[fragment.attr("id")];
       if (typeof(editor) == "undefined") {
         fragment.attr('contenteditable', true);
-        CKEDITOR.inline(fragment.prop('id')).on('blur', function() {
+        CKEDITOR.inline(fragment.prop('id'), {
+          startupFocus: true,
+          filebrowserBrowseUrl: '/simple_cms/files/browse',
+          filebrowserUploadUrl: '/simple_cms/files/upload'
+        }).on('blur', function() {
           saveData(fragment, true);
         });
       }
-      fragment.focus();
     });
   });
 

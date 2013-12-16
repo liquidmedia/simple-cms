@@ -32,3 +32,5 @@ Page_fragment takes the following options: (name required, all others optional)
 
 * default_text - text to display when the text block is empty. Defaults to "This text block
   is blank. Click on it to edit it and add content."
+
+TODO: instructions for configuring S3 storage for file browser

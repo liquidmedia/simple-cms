@@ -1,4 +1,6 @@
 require "simple_cms/engine"
+require 'paperclip'
+require 'aws-sdk'
 
 module SimpleCms
   mattr_accessor :layout # no default, used only if user sets a value
@@ -7,7 +9,7 @@ module SimpleCms
     asset_list = Dir[SimpleCms.root_path.join('vendor/assets/javascripts/ckeditor/**', '*.{js,css}')].inject([]) do |list, path|
       list << Pathname.new(path).relative_path_from(SimpleCms.root_path.join('vendor/assets/javascripts'))
     end
-    asset_list
+    asset_list << 'simple_cms/file_browser.js' << 'simple_cms/file_browser.css'
   end
 
   def self.root_path

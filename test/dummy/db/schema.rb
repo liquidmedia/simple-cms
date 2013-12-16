@@ -11,11 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228173923) do
+ActiveRecord::Schema.define(:version => 20131212213051) do
 
   create_table "pages_users", :id => false, :force => true do |t|
     t.integer "page_id", :null => false
     t.integer "user_id", :null => false
+  end
+
+  create_table "simple_cms_files", :force => true do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.integer  "folder_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "simple_cms_pages", :force => true do |t|

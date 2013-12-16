@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     post '/create' => 'pages#create'
     post '/:id' => 'pages#update'
     delete '/:id' => 'pages#delete'
+    get '/files/browse' => 'files#browse'
+    post '/files/upload' => 'files#upload'
   end
 
   get '/*name' => 'simple_cms/pages#show', :as => :page

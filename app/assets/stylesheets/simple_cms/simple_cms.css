@@ -16,3 +16,79 @@
   cursor: pointer;
   text-transform: uppercase;
 }
+
+#file_browser {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: lightgrey;
+}
+
+html, #file_browser {
+  height: 100%;
+}
+
+#file_browser table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+
+#file_browser .folders {
+  width: 20%;
+  height: 100%;
+  padding: 10px;
+  vertical-align: top;
+}
+
+#file_browser .files {
+  height: 100%;
+  vertical-align: top;
+  padding: 10px 10px 10px 0;
+}
+
+#file_browser .container {
+  background-color: #f0f0f0;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#file_browser .folders .container {
+  padding: 0 15px;
+}
+
+#file_browser .folders .container {
+  padding: 0 15px;
+}
+
+#file_browser .files .file {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  margin: 5px;
+  width: 180px;
+  height: 140px;
+  float: left;
+  padding: 40px 0 20px;
+}
+
+#file_browser .files .file:hover {
+  background-color: aliceblue;
+}
+
+#file_browser .files .file p.filename {
+   width: 160px;
+   margin: 10px 0 0 10px;
+   text-align: center;
+   font-size: 10px;
+   overflow: hidden;
+}
+
+#file_browser .files .file .thumbnail {
+  background: 50% 50% no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}

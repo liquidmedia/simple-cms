@@ -1,0 +1,21 @@
+-#.top
+-#  .folders
+-#    .container
+-#      %h4 Folders
+-#  .files
+-#    .container
+-#      = render partial: 'file', collection: @files
+
+
+%table
+  %tr
+    %td.folders
+      .container
+        %h4 Folders
+        .folder.selected{data: {type: :all}} All Files
+        .folder{data: {type: :image}} Images
+        .folder{data: {type: :pdf}} PDFs
+
+    %td.files
+      .container
+        = render partial: 'file', collection: @files
