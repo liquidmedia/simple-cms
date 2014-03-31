@@ -1,0 +1,6 @@
+Paperclip::Attachment.default_options[:storage] = :s3
+Paperclip::Attachment.default_options[:s3_credentials] = {
+    :bucket => '<your bucket>',
+    :access_key_id => '<your access key id>',
+    :secret_access_key => '<your secret access key>'
+}
