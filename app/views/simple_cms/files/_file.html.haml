@@ -1,3 +1,3 @@
 .file{data: {url: file.upload.url, type: file_type(file)}}
   .thumbnail{style: "background-image:url(#{file_icon_url(file)})"}
-  %p.filename= file.upload_file_name
+  %p.filename= file.upload_file_name.gsub('_', ' ').gsub(/([a-z])([A-Z0-9])/, '\1 \2').gsub(/([0-9])([A-Z])/, '\1 \2')
