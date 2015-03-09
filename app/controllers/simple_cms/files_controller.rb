@@ -1,5 +1,7 @@
 class SimpleCms::FilesController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token
+
   def browse
     @files = SimpleCms::File.order(:upload_file_name)
     render layout: '/simple_cms/layouts/file_browser'
