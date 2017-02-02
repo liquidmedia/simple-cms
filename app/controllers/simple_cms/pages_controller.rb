@@ -9,14 +9,14 @@ class SimpleCms::PagesController < ApplicationController
   end
 
   def show
-    raise ActionController::RoutingError.new(error_msg) unless params[:format].blank? || params[:format] == "html"
+    head '404' and return unless params[:format].blank? || params[:format] == "html"
 
     @full_page = SimpleCms::FullPage.find_by_name_and_locale(params[:name], I18n.locale)
     if @full_page.nil?
       if admin_signed_in?
         render 'simple_cms/pages/new'
       else
-        raise ActionController::RoutingError.new(error_msg)
+        head '404' and return
       end
     end
   end
