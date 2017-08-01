@@ -2,7 +2,11 @@ module SimpleCms
   module ApplicationHelper
 
     def page_fragment(name, user = nil, tag_name = :div, default_text = nil)
-      @page = Page.find_or_create_by_name_and_locale(name, I18n.locale, :url => request.path[1..-1], :full_url => request.url, :content => default_text)
+      @page = Page.find_or_create_by(name: name, locale: I18n.locale) do |fp|
+        fp.url = request.path[1..-1]
+        fp.full_url = request.url
+        fp.content = default_text
+      end
       @page.update_attributes(:url => request.path[1..-1]) if @page.url.nil?
       @page.users << user unless user.nil? || @page.users.include?(user)
 

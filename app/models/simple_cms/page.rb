@@ -3,7 +3,7 @@ module SimpleCms
 
     self.table_name = 'simple_cms_pages'
 
-    attr_accessible :title, :content, :url, :full_url
+    # attr_accessible :title, :content, :url, :full_url
 
     has_and_belongs_to_many :users
 

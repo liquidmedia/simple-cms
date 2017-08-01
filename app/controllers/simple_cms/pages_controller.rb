@@ -4,14 +4,18 @@ class SimpleCms::PagesController < ApplicationController
 
   def create
     head '401' and return unless admin_signed_in?
-    @full_page = SimpleCms::FullPage.find_or_create_by_name_and_locale(params[:name], I18n.locale, :title => params[:name].gsub('/', ' ').titleize, :content => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", :full_url => params[:full_url])
+    @full_page = SimpleCms::FullPage.find_or_create_by(name: params[:name], locale: I18n.locale) do |fp|
+      fp.title = params[:name].gsub('/', ' ').titleize
+      fp.content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      fp.full_url = params[:full_url]
+    end
     redirect_to main_app.page_path(@full_page.name, :locale => params[:locale])
   end
 
   def show
     head '404' and return unless params[:format].blank? || params[:format] == "html"
 
-    @full_page = SimpleCms::FullPage.find_by_name_and_locale(params[:name], I18n.locale)
+    @full_page = SimpleCms::FullPage.where(name: params[:name], locale: I18n.locale).first
     if @full_page.nil?
       if admin_signed_in?
         render 'simple_cms/pages/new'
