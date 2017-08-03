@@ -28,6 +28,7 @@ class SimpleCms::PagesController < ApplicationController
   def update
     @page = SimpleCms::Page.find(params[:id])
     head '401' and return unless admin_signed_in? || @page.editable?(current_user)
+    params.permit!
     @page.update_attributes(params[:page])
     head '200'
   end

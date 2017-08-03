@@ -1,6 +1,6 @@
 class SimpleCms::AdminController < ApplicationController
 
-  before_filter :check_authorization
+  before_action :check_authorization
 
   def index
     @grouped_pages = SimpleCms::Page.where(:type => nil).order(:url, :name).group_by{|page| page.url}

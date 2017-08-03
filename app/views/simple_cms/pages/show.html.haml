@@ -7,5 +7,5 @@
 .page_fragment
   .full_page_body.editable_area{:id => "full_page_#{@full_page.id}_body", :"data-id" => @full_page.id}
     :plain
-      #{@full_page.content}
+      #{@full_page.content.html_safe}
   = simple_cms_edit_button(@full_page.editable?(current_user))

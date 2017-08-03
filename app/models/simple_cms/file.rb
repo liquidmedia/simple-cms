@@ -7,5 +7,6 @@ class SimpleCms::File < ActiveRecord::Base
   has_attached_file :upload, styles: {
       :thumb => "100x100>"
   }
+  do_not_validate_attachment_file_type :upload
 
 end

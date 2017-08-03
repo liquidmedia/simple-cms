@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :login_as_admin
-  #before_filter :login_as_user
-  before_filter :set_locale
+  before_action :login_as_admin
+  #before_action :login_as_user
+  before_action :set_locale
   layout :set_layout
 
   helper_method :current_user, :admin_signed_in?
