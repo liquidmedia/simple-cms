@@ -28,7 +28,21 @@
         CKEDITOR.inline(fragment.prop('id'), {
           startupFocus: true,
           filebrowserBrowseUrl: '/simple_cms/files/browse',
-          filebrowserUploadUrl: '/simple_cms/files/upload'
+          filebrowserUploadUrl: '/simple_cms/files/upload',
+              toolbarStartupExpanded: true,
+              toolbar: 'Full',
+              toolbar_Full : [
+                                ['Source'],
+                                ['Undo','Redo','-','SelectAll'],
+                                ['Cut','Copy','Paste','PasteText','PasteFromWord','-','SpellChecker', 'Scayt'],
+                                ['Link','Unlink'],
+                                ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+                                ['Image'],
+                                ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+                                ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                                ['Format','Font','FontSize'],
+                                ['TextColor','BGColor']
+                             ],
         }).on('blur', function() {
           saveData(fragment, true);
         });
