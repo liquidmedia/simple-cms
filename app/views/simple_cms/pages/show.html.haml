@@ -1,11 +1,11 @@
 - content_for :page_title do
   .page_fragment
     %h1.full_page_title.editable_area{:id => "full_page_#{@full_page.id}_title", :"data-id" => @full_page.id}
-      = @full_page.title.html_safe
+      = @full_page.title.html_safe if @full_page.content.present?
     = simple_cms_edit_button(@full_page.editable?(current_user))
 
 .page_fragment
   .full_page_body.editable_area{:id => "full_page_#{@full_page.id}_body", :"data-id" => @full_page.id}
     :plain
-      #{@full_page.content.html_safe}
+      #{@full_page.content.html_safe if @full_page.content.present?}
   = simple_cms_edit_button(@full_page.editable?(current_user))
