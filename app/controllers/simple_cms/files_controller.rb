@@ -10,7 +10,7 @@ class SimpleCms::FilesController < ApplicationController
   def upload
     params.permit!
     @file = SimpleCms::File.create(upload: params[:upload])
-    render text: "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]}, '#{@file.upload.url}', '');</script>"
+    render html: "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]}, '#{@file.upload.url}', '');</script>".html_safe
   end
 
 end
