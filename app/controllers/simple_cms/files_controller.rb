@@ -4,7 +4,7 @@ class SimpleCms::FilesController < ApplicationController
 
   def browse
     @files = SimpleCms::File.order(:upload_file_name)
-    render layout: '/simple_cms/layouts/file_browser'
+    render layout: 'simple_cms/layouts/file_browser'
   end
 
   def upload

@@ -1,1 +1,0 @@
-# SimpleCms.layout = 'test'

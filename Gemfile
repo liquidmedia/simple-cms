@@ -18,6 +18,7 @@ gem "jquery-rails"
 
 gem 'haml'
 gem 'pg'
+gem 'puma'
 
 # Gems used for precompiling assets
 group :assets do

@@ -4,24 +4,24 @@ class ApplicationController < ActionController::Base
   before_action :login_as_admin
   #before_action :login_as_user
   before_action :set_locale
-  layout :set_layout
+  # layout :set_layout
 
   helper_method :current_user, :admin_signed_in?
 
   def current_user
-    session[:current_user]
+    @current_user
   end
 
   def admin_signed_in?
-    session[:current_user] && session[:current_user].admin?
+    current_user&.admin?
   end
 
   def login_as_admin
-    session[:current_user] ||= User.find_or_create_by_name("Test Admin", :admin => true)
+    @current_user ||= User.find_or_create_by(name: "Test Admin", admin: true)
   end
 
   def login_as_user
-    session[:current_user] ||= User.find_or_create_by_name("Test User", :admin => false)
+    @current_user ||= User.find_or_create_by(name: "Test User", admin: false)
   end
 
   def set_locale

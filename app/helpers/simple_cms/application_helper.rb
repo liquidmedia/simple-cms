@@ -7,7 +7,7 @@ module SimpleCms
         fp.full_url = request.url
         fp.content = default_text
       end
-      @page.update_attributes(:url => request.path[1..-1]) if @page.url.nil?
+      @page.update(:url => request.path[1..-1]) if @page.url.nil?
       @page.users << user unless user.nil? || @page.users.include?(user)
 
       content = @page.content
