@@ -6,9 +6,9 @@ module SimpleCms
         when 'image'
           file.upload.url(:thumb)
         when 'pdf'
-          '/assets/simple_cms/file_icons/pdf.png'
+          image_url 'simple_cms/file_icons/pdf.png'
         else
-          '/assets/simple_cms/file_icons/any.png'
+          image_url 'simple_cms/file_icons/any.png'
       end
     end
 

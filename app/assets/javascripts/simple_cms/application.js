@@ -76,7 +76,7 @@
     dom_obj.parent('.page_fragment').children('.edit_button').show();
   }
 
-  window['CKEDITOR_BASEPATH'] = "/assets/ckeditor/";
+  window['CKEDITOR_BASEPATH'] = "/ckeditor/";
 
 }(jQuery));
 
