@@ -13,14 +13,14 @@ class SimpleCms::PagesController < ApplicationController
   end
 
   def show
-    head '404' and return unless params[:format].blank? || params[:format] == "html"
+    head '404', :content_type => 'text/html' and return unless request.format == 'html'
 
     @full_page = SimpleCms::FullPage.where(name: params[:name], locale: I18n.locale).first
     if @full_page.nil?
       if admin_signed_in?
         render 'simple_cms/pages/new'
       else
-        head '404' and return
+        head '404', :content_type => 'text/html' and return
       end
     end
   end
